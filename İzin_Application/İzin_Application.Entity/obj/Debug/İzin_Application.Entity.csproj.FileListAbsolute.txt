@@ -1,0 +1,14 @@
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\bin\Debug\İzin_Application.Entity.dll.config
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\bin\Debug\İzin_Application.Entity.dll
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\bin\Debug\İzin_Application.Entity.pdb
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\bin\Debug\EntityFramework.dll
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\bin\Debug\EntityFramework.xml
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug\İzin_Application.Entity.csproj.AssemblyReference.cache
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug\İzin_Application.Entity.csproj.CoreCompileInputs.cache
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug\İzin_Application.Entity.csproj.CopyComplete
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug\İzin_Application.Entity.dll
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug\İzin_Application.Entity.pdb
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug\İzin_Application.Entity.Migrations.databaseOlustur.resources
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug\İzin_Application.Entity.csproj.GenerateResource.cache

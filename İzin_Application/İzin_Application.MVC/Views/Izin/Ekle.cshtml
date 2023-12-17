@@ -1,0 +1,36 @@
+﻿﻿@model İzin_Application.Entity.Model.Izin
+
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div style="margin:15px">
+    @using (Html.BeginForm("Ekle", "Izin", FormMethod.Post))
+    {
+        @Html.Label("Personel")
+        @Html.DropDownListFor(x => x.PersonelID, (List<SelectListItem>)ViewBag.Personeller, new { @class = "form-control" })
+        <br />
+
+        @Html.Label("İzin")
+        @Html.DropDownListFor(x => x.IzinTurId, (List<SelectListItem>)ViewBag.IzinTurleri, new { @class = "form-control" })
+        <br />
+        @Html.Label("Başlangıç")
+        @Html.TextBoxFor(x => x.IzinBaslangic, new { @class = "form-control", @type = "date" })
+        <br />
+        @Html.Label("Bitiş")
+        @Html.TextBoxFor(x => x.IzinBitis, new { @class = "form-control", @type = "date" })
+        <br />
+        @Html.Label("Açıklama")
+        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+        <br />
+        @Html.Label("tarih")
+        @Html.TextBoxFor(x => x.tarih, new { @class = "form-control", @type = "date" })
+        <br />
+
+        <button style="text-align: center; background-color: #1C2E3E; color: white"> <b>Kaydet</b></button>
+    }
+</div>
+
+

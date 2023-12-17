@@ -1,0 +1,52 @@
+﻿﻿@model İzin_Application.Entity.Model.Personel
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin:15px">
+    @using (Html.BeginForm("Guncelle", "Personel", FormMethod.Post))
+    {
+
+        @Html.Label("Id")
+        @Html.TextBoxFor(x => x.PersonelId, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("Adı")
+        @Html.TextBoxFor(x => x.PersonelAdi, new { @class = "form-control" })
+        <br />
+
+        @Html.Label("Soyadı")
+        @Html.TextBoxFor(x => x.PersonelSoyadi, new { @class = "form-control" })
+        <br />
+        @Html.Label("Mail")
+        @Html.TextBoxFor(x => x.PersonelEmail, new { @class = "form-control" })
+        <br />
+        @Html.Label("TC")
+        @Html.TextBoxFor(x => x.TC, new { @class = "form-control" })
+        <br />
+        @Html.Label("Telefon")
+        @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+        <br />
+        @Html.Label("Adres")
+        @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kullanıcı Adı")
+        @Html.TextBoxFor(x => x.PersonelKAdi, new { @class = "form-control" })
+        <br />
+        @*@Html.Label("Parola")
+        @Html.PasswordFor(x => x.PersonelParola, new { @class = "form-control", @readonly = "readonly" })
+        <br />*@
+        @Html.Label("Giriş Tarihi")
+        @Html.TextBoxFor(x => x.GirisTarihi, new { @class = "form-control", @type = "date" })
+
+
+        <br />
+        @Html.Label("Departman")
+        @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.Departmanlar, new { @class = "form-control" })
+        <br />
+        @Html.Label("Yetki")
+        @Html.DropDownListFor(x => x.YetkiId, (List<SelectListItem>)ViewBag.Yetkiler, new { @class = "form-control" })
+        <br />
+        <button style="text-align: center; background-color: #1C2E3E; color: white"> <b>Güncelle</b></button>
+    }
+</div>

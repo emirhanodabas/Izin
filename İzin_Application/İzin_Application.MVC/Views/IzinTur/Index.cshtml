@@ -1,0 +1,53 @@
+﻿﻿@using İzin_Application.Entity.Model
+@model List<IzinTur>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="tabs" class="project-tab">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <table class="table" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>İzinTürü</th>
+                                    <th>Açıklma</th>
+                                    <th>Süre</th>
+                                    <th>İşlem</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (IzinTur it in Model)
+                                {
+                                    <tr>
+                                        <td>@it.IzinTuru</td>
+                                        <td>@it.Aciklama</td>
+                                        <td>@it.IzinSure</td>
+                                        <td>
+                                            <a class="btn btn-warning" href="/IzinTur/Guncelle/@it.IzinTurId">Güncelle</a>
+
+                                            @Html.ActionLink("SİL", "Sil", new { Id = it.IzinTurId }, new { @class = "btn btn-danger", onclick = "return confirm('Veriyi Silmek istediğinize emin misiniz ? ')" })
+                                        </td>
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                        <a href="/IzinTur/Ekle/" class="btn btn-primary" style="margin: 5px;color:white"> Yeni İzin türü Ekle </a>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,68 @@
+﻿﻿@using İzin_Application.Entity.Model
+@model List<Izin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="tabs" class="project-tab">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <table class="table" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Personel</th>
+                                    <th>Türü</th>
+                                    <th>Başlangıç</th>
+                                    <th>Bitiş</th>
+                                    <th>Açıklama</th>
+                                    <th>Tarih</th>
+                                    <th>İşlemler</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var iz in Model)
+                                {
+                                    if (int.Parse(Session["PersonelId"].ToString()) == iz.PersonelID)
+                                    {
+                                        <tr>
+                                            <td>@iz.Personel.PersonelAdi&nbsp;@iz.Personel.PersonelSoyadi </td>
+                                            <td>@iz.IzinTur.IzinTuru</td>
+                                            <td>@iz.IzinBaslangic.ToShortDateString()</td>
+                                            <td>@iz.IzinBitis.ToShortDateString()</td>
+                                            <td>@iz.Aciklama</td>
+                                            <td>@iz.tarih.ToShortDateString()</td>
+                                            <td>
+                                                <a class="btn btn-warning" href="/Izin/Guncelle/@iz.ID">Güncelle</a>
+
+                                                @Html.ActionLink("SİL", "Sil", new { Id = iz.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Veriyi Silmek istediğinize emin misiniz ? ')" })
+                                            </td>
+
+                                        </tr>
+                                    }
+
+                                }
+
+
+                            </tbody>
+                        </table>
+
+                        <a href="/Izin/Ekle/" class="btn btn-primary" style="margin: 5px;color:white">İzin Al </a>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
