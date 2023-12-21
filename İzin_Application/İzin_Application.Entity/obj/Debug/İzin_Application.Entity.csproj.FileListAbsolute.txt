@@ -12,3 +12,4 @@ C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug
 C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug\İzin_Application.Entity.pdb
 C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug\İzin_Application.Entity.Migrations.databaseOlustur.resources
 C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug\İzin_Application.Entity.csproj.GenerateResource.cache
+C:\Users\EMIRHAN-PC\Desktop\İzin_Application\İzin_Application.Entity\obj\Debug\İzin_Application.Entity.Migrations.izinhak.resources

@@ -66,10 +66,34 @@ namespace İzin_Application.MVC.Controllers
             prs.departman = db.Departman.Find(pPersonel.DepartmanID);
             prs.yetki = db.Yetki.Find(pPersonel.YetkiId);
             prs.Durumu = true;
+            prs.IzinHak = CalculateIzinHak(pPersonel.GirisTarihi);
             db.Personel.Add(prs);
             db.SaveChanges();
             return RedirectToAction("Index");
 
+        }
+        private int CalculateIzinHak(DateTime girisTarihi)
+        {
+            // IzinHak'ı hesaplamak için gerekli işlemleri yapın
+            // Bu kısmı gerekli iş mantığınıza göre doldurun
+
+            // Örnek olarak:
+            if ((DateTime.Now - girisTarihi).Days < 365)
+            {
+                return 0;
+            }
+            else if ((DateTime.Now - girisTarihi).TotalDays >= 1 && (DateTime.Now - girisTarihi).TotalDays < 5 * 365)
+            {
+                return 14;
+            }
+            else if ((DateTime.Now - girisTarihi).TotalDays >= 5 * 365 && (DateTime.Now - girisTarihi).TotalDays < 10 * 365)
+            {
+                return 28;
+            }
+            else
+            {
+                return 42;
+            }
         }
         [HttpGet]
         public ActionResult Guncelle(int id)

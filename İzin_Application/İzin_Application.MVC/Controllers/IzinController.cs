@@ -48,35 +48,67 @@ namespace İzin_Application.MVC.Controllers
         [HttpPost]
         public ActionResult Ekle(Izin pizin)
         {
-            List<Personel> model = new List<Personel>();
-            Izin iz = new Izin();
-            Personel prs = new Personel();
-            if (pizin.IzinBaslangic > pizin.IzinBitis)
+            if (ModelState.IsValid)
             {
-                MessageBox.Show("Bitiş Tarihi Başlangıç Tarihinden Önce Olamaz! Lütfen Bilgileri Kontrol Ediniz", "Bilgi");
+                try
+                {
+                    // Personel bilgisini veritabanından çek
+                    Personel personel = db.Personel.Find(pizin.PersonelID);
+
+                    if (personel != null)
+                    {
+                        // Diğer izin ekleme işlemleri buraya eklenir...
+
+                        // İzin haklarını güncelle
+                        TimeSpan timeSpan = pizin.IzinBitis - pizin.IzinBaslangic;
+                        int izinsuresi = timeSpan.Days;
+                        personel.IzinHak -= izinsuresi;
+
+                        // İzin nesnesini oluşturup kaydet
+                        Izin iz = new Izin
+                        {
+                            Personel = personel,
+                            IzinTur = db.IzinTur.Find(pizin.IzinTurId),
+                            IzinBaslangic = pizin.IzinBaslangic,
+                            IzinBitis = pizin.IzinBitis,
+                            Aciklama = pizin.Aciklama,
+                            tarih = pizin.tarih,
+                            Durumu = true
+                        };
+
+                        db.Izin.Add(iz);
+                        db.SaveChanges();
+
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Personel bulunamadı");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "İzin ekleme sırasında bir hata oluştu: " + ex.Message);
+                }
             }
-            else
-            {
-                int hak = model.Select(p => p.IzinHak).Count();
 
-                iz.Personel = db.Personel.Find(pizin.PersonelID);
-                iz.IzinTur = db.IzinTur.Find(pizin.IzinTurId);
-                iz.IzinBaslangic = pizin.IzinBaslangic;
-                iz.IzinBitis = pizin.IzinBitis;
-                iz.Aciklama = pizin.Aciklama;
-                iz.tarih = pizin.tarih;
-                iz.Durumu = true;
+            // Model geçerli değilse, tekrar ekleme sayfasını göster
+            List<SelectListItem> pPer = db.Personel.AsNoTracking().Where(x => x.Durumu == true)
+                                                .Select(s => new SelectListItem
+                                                {
+                                                    Value = s.PersonelId.ToString(),
+                                                    Text = s.PersonelAdi + " " + s.PersonelSoyadi,
+                                                }).ToList();
+            List<SelectListItem> Pit = db.IzinTur.AsNoTracking().Where(x => x.Durumu == true)
+                                                .Select(s => new SelectListItem
+                                                {
+                                                    Value = s.IzinTurId.ToString(),
+                                                    Text = s.IzinTuru
+                                                }).ToList();
+            ViewBag.Personeller = pPer;
+            ViewBag.IzinTurleri = Pit;
 
-                TimeSpan timeSpan = iz.IzinBitis - iz.IzinBaslangic;
-                int izinsuresi = timeSpan.Days;
-                prs.IzinHak = prs.IzinHak - izinsuresi;
-
-                db.Izin.Add(iz);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return RedirectToAction("Index");
+            return View(pizin);
 
         }
         [HttpGet]
@@ -110,7 +142,6 @@ namespace İzin_Application.MVC.Controllers
             iz.Aciklama = piz.Aciklama;
             iz.tarih = piz.tarih;
             iz.Durumu = true;
-
             db.SaveChanges();
             return RedirectToAction("Index");
         }

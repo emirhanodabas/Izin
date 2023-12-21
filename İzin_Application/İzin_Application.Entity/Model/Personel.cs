@@ -20,7 +20,7 @@ namespace İzin_Application.Entity.Model
         public string Telefon { get; set; }
         public string Adres { get; set; }
         public string TC { get; set; }
-        public int IzinHak { get; set; }
+        public virtual int IzinHak { get; set; }
         public bool Durumu { get; set; }
         public int YetkiId { get; set; }
         

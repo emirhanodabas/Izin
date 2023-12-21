@@ -60,6 +60,10 @@
     <Compile Include="Migrations\202309162157072_databaseOlustur.designer.cs">
       <DependentUpon>202309162157072_databaseOlustur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312201650255_izinhak.cs" />
+    <Compile Include="Migrations\202312201650255_izinhak.designer.cs">
+      <DependentUpon>202312201650255_izinhak.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Departman.cs" />
     <Compile Include="Model\Izin.cs" />
@@ -76,6 +80,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202309162157072_databaseOlustur.resx">
       <DependentUpon>202309162157072_databaseOlustur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312201650255_izinhak.resx">
+      <DependentUpon>202312201650255_izinhak.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
