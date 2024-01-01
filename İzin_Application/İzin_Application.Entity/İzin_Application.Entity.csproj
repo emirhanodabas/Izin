@@ -64,6 +64,10 @@
     <Compile Include="Migrations\202312201650255_izinhak.designer.cs">
       <DependentUpon>202312201650255_izinhak.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312302000314_updateetme.cs" />
+    <Compile Include="Migrations\202312302000314_updateetme.designer.cs">
+      <DependentUpon>202312302000314_updateetme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Departman.cs" />
     <Compile Include="Model\Izin.cs" />
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312201650255_izinhak.resx">
       <DependentUpon>202312201650255_izinhak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312302000314_updateetme.resx">
+      <DependentUpon>202312302000314_updateetme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

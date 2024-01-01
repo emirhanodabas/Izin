@@ -13,7 +13,7 @@ namespace İzin_Application.MVC.Controllers
     {
         // GET: Izin
         IzinContext db = new IzinContext();
-
+        [Authorize]
         public ActionResult Index()
         {
             List<Izin> izin = db.Izin.Where(x=>x.Durumu==true).ToList();
@@ -57,13 +57,15 @@ namespace İzin_Application.MVC.Controllers
 
                     if (personel != null)
                     {
-                        // Diğer izin ekleme işlemleri buraya eklenir...
+                       
+                            // Diğer izin ekleme işlemleri buraya eklenir...
 
-                        // İzin haklarını güncelle
-                        TimeSpan timeSpan = pizin.IzinBitis - pizin.IzinBaslangic;
-                        int izinsuresi = timeSpan.Days;
-                        personel.IzinHak -= izinsuresi;
-
+                            // İzin haklarını güncelle
+                            TimeSpan timeSpan = pizin.IzinBitis - pizin.IzinBaslangic;
+                            int izinsuresi = timeSpan.Days;
+                            personel.IzinHak -= izinsuresi;
+                        
+                        
                         // İzin nesnesini oluşturup kaydet
                         Izin iz = new Izin
                         {
@@ -111,6 +113,7 @@ namespace İzin_Application.MVC.Controllers
             return View(pizin);
 
         }
+        
         [HttpGet]
         public ActionResult Guncelle(int id)
         {
@@ -145,5 +148,6 @@ namespace İzin_Application.MVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
 }

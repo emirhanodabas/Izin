@@ -21,6 +21,12 @@ namespace İzin_Application.Entity.Model
         public string Adres { get; set; }
         public string TC { get; set; }
         public virtual int IzinHak { get; set; }
+        public virtual int AnnelikIzinHak { get; set; }
+        public virtual int EvlilikIzinHak { get; set; }
+        public virtual int OlumIzinHak { get; set; }
+        public virtual int DogumIzinHak { get; set; }
+        public virtual int CenazeIzinHak { get; set; }
+        public virtual int UcretsizIzinHak { get; set; }
         public bool Durumu { get; set; }
         public int YetkiId { get; set; }
         

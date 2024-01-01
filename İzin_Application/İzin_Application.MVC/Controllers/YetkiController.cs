@@ -12,6 +12,7 @@ namespace İzin_Application.MVC.Controllers
     {
         // GET: Yetki
         IzinContext db = new IzinContext();
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             List<Yetki> yetkiList = db.Yetki.Where(x => x.YetkiDurumu == true).ToList();

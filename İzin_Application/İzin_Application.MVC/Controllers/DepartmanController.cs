@@ -7,11 +7,13 @@ using System.Web.Mvc;
 
 namespace İzin_Application.MVC.Controllers
 {
-
+    
     public class DepartmanController : Controller
     {
+        
         // GET: Departman
         IzinContext db = new IzinContext();
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             List<Departman> departman = db.Departman.Where(x => x.Durumu == true).ToList();
@@ -24,13 +26,13 @@ namespace İzin_Application.MVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public ActionResult Ekle()
         {
             return View();
         }
-
+        
         [HttpPost]
         public ActionResult Ekle(Departman pDepartman)
         {

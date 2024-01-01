@@ -55,32 +55,33 @@
     with font-awesome or any other icon font library -->
 
                     <li class="nav-header">Menü </li>
-                    @* @if (int.Parse(Session["YetkiId"].ToString()) == 1)
-        {*@
-                    <li class="nav-item">
-                        <a href="/Departman/Index/" class="nav-link">
-                            <i class="nav-icon	fas fa-hotel"></i>
-                            <p>
-                                Departman
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/IzinTur/Index/" class="nav-link">
-                            <i class="nav-icon 	far fa-list-alt"></i>
-                            <p>
-                                İzinTürü
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/Personel/Index/" class="nav-link">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p>
-                                Personeller
-                            </p>
-                        </a>
-                    </li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a href="/Departman/Index/" class="nav-link">
+                                <i class="nav-icon	fas fa-hotel"></i>
+                                <p>
+                                    Departman
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/IzinTur/Index/" class="nav-link">
+                                <i class="nav-icon 	far fa-list-alt"></i>
+                                <p>
+                                    İzinTürü
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Personel/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Personeller
+                                </p>
+                            </a>
+                        </li>
+
                     <li class="nav-item">
                         <a href="/Yetki/Index/" class="nav-link">
                             <i class="nav-icon 	fas fa-key"></i>
@@ -90,8 +91,7 @@
 
                         </a>
                     </li>
-                    @*}*@
-
+                    }
                     <li class="nav-item">
                         <a href="/Izin/Index/" class="nav-link">
                             <i class="nav-icon fas fa-plane-departure"></i>

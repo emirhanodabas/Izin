@@ -152,6 +152,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roller\AdminRolProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE-3.1.0\.babelrc.js" />
@@ -2214,6 +2215,8 @@
     <Content Include="AdminLTE-3.1.0\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="AdminLTE-3.1.0\plugins\uplot\uPlot.min.css" />
     <Content Include="AdminLTE-3.1.0\starter.html" />
+    <Content Include="AnimatedLoginPage_001\index.html" />
+    <Content Include="AnimatedLoginPage_001\style.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2537,6 +2540,7 @@
     <Content Include="Views\Yetki\Index.cshtml" />
     <Content Include="Views\Yetki\Ekle.cshtml" />
     <Content Include="Views\Yetki\Guncelle.cshtml" />
+    <Content Include="Views\Deneme\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

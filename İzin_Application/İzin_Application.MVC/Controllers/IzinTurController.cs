@@ -12,6 +12,7 @@ namespace İzin_Application.MVC.Controllers
     {
         // GET: IzinTur
         IzinContext db = new IzinContext();
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             List<IzinTur> izinTur = db.IzinTur.Where(x => x.Durumu == true).ToList();

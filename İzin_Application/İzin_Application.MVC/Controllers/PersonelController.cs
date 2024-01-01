@@ -13,7 +13,7 @@ namespace İzin_Application.MVC.Controllers
         // GET: Personel
         IzinContext db = new IzinContext();
 
-   
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             Personel prs = new Personel();
@@ -67,6 +67,12 @@ namespace İzin_Application.MVC.Controllers
             prs.yetki = db.Yetki.Find(pPersonel.YetkiId);
             prs.Durumu = true;
             prs.IzinHak = CalculateIzinHak(pPersonel.GirisTarihi);
+            prs.AnnelikIzinHak = 5;
+            prs.CenazeIzinHak = 3;
+            prs.DogumIzinHak = 56;
+            prs.OlumIzinHak = 3;
+            prs.EvlilikIzinHak = 7;
+            prs.UcretsizIzinHak = 365;
             db.Personel.Add(prs);
             db.SaveChanges();
             return RedirectToAction("Index");
